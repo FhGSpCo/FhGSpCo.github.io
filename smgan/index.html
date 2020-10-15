@@ -57,6 +57,475 @@ MUSHRA and P.800 listening tests show that StyleMelGAN outperforms known existin
     <div>
       <h2>*Copy-Synthesis:</h2>
         
+      <table>
+        <tr>
+        <td></td>
+        <td>Parallel WaveGAN (Baseline adversarial vocoder)</td><td>WaveGlow (NLP group)</td><td>WaveNet (Best open-source pretrained model)</td><td>StyleMelGAN (The proposed adversarial vocoder)</td><td>Original</td></tr>
+        <tr>
+        <td>signal 1</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/CI_13_006.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/CI_13_006.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/CI_13_006.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/CI_13_006.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/CI_13_006.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 2</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/CI_13_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/CI_13_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/CI_13_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/CI_13_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/CI_13_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 3</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/DS_04_003.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/DS_04_003.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/DS_04_003.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/DS_04_003.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/DS_04_003.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 4</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/DS_04_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/DS_04_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/DS_04_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/DS_04_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/DS_04_019.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 5</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/HT8_16_026.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/HT8_16_026.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/HT8_16_026.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/HT8_16_026.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/HT8_16_026.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 6</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/HT8_24_025.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/HT8_24_025.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/HT8_24_025.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/HT8_24_025.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/HT8_24_025.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 7</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/HT8_24_030.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/HT8_24_030.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/HT8_24_030.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/HT8_24_030.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/HT8_24_030.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+        <tr>
+        <td>signal 8</td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/pwgan/HT8_24_035.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/waveglow_nlp/HT8_24_035.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/wavenet/HT8_24_035.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/stylemelgan/HT8_24_035.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        <td>
+          <figure>
+            <figcaption></figcaption>
+            <audio
+                controls
+                src="./copy_synthesis/original/HT8_24_035.wav">
+                    Your browser does not support the
+                    <code>audio</code> element: p226_003.wav.
+            </audio>
+          </figure>
+        </td>
+        </tr>
+    </table> 
     </div>
     <br><br>
       
