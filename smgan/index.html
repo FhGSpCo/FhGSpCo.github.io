@@ -13,7 +13,7 @@
   <body>
     <article>
       <header>
-        <h1>StyleMelGAN: An Efficient High-Fidelity Adversarial Vocoder with Temporal Adaptive Normalization</h1>
+        <h1>Audio Samples for "StyleMelGAN: An Efficient High-Fidelity Adversarial Vocoder with Temporal Adaptive Normalization"</h1>
       </header>
     </article>
       
@@ -47,547 +47,335 @@ MUSHRA and P.800 listening tests show that StyleMelGAN outperforms known existin
     </div>
 
     <p>&nbsp;</p> </p>-->
-    <hr>
+    <br><br>
+
     <div> 
         <p style="line-height:1.5;text-align:left;">
-        <span style="font-size:15pt"> - For copy-synthesis and TTS in this demo, all ground truth samples are unseen during the training of all vocoders and the text2mel model. 
-                                        They are randomly selected from the <a href="https://librivox.org">online LibriVox corpus</a> for the same LJspeech dataset speaker <a href="https://librivox.org/reader/11049">Linda Johnson</a>.</span>
+		<span style="font-size:15pt"> - For copy-synthesis and TTS in this demo:</span>
+		<ul>
+			<li> <span style="font-size:13pt"> All ground truth samples are unseen during the training of all vocoders and the text2mel model.</span></li>
+            <li> <span style="font-size:13pt"> They are randomly selected from the <a href="https://librivox.org">online LibriVox corpus</a> for the same LJspeech dataset speaker: <a href="https://librivox.org/reader/11049">Linda Johnson</a>.</span></li>     
+		    <li> <span style="font-size:13pt"> Check the paper for references about the source implementations of all baseline vocoders and the text2mel transformer used.</span></li>
+		</ul>                    
         </p>
     </div>
+	
     <div>
+	<hr>
       <h2>*Copy-Synthesis:</h2>
-        
-      <table>
-        <tr>
-        <td></td>
-        <td><h3>Parallel WaveGAN</h3></td><td><h3>WaveGlow</h3></td><td><h3>WaveNet</h3></td><td><h3>StyleMelGAN</h3></td><td><h3>Ground Truth</h3></td></tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/CI_13_006.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/CI_13_006.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/CI_13_006.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/CI_13_006.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/CI_13_006.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/CI_13_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/CI_13_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/CI_13_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/CI_13_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/CI_13_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/DS_04_003.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/DS_04_003.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/DS_04_003.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/DS_04_003.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/DS_04_003.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/DS_04_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/DS_04_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/DS_04_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/DS_04_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/DS_04_019.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/HT8_16_026.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/HT8_16_026.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/HT8_16_026.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/HT8_16_026.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/HT8_16_026.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/HT8_24_025.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/HT8_24_025.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/HT8_24_025.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/HT8_24_025.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/HT8_24_025.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/HT8_24_030.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/HT8_24_030.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/HT8_24_030.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/HT8_24_030.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/HT8_24_030.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-        <tr>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/pwgan/HT8_24_035.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/waveglow_nlp/HT8_24_035.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/wavenet/HT8_24_035.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/stylemelgan/HT8_24_035.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <figcaption></figcaption>
-            <audio
-                controls
-                src="./copy_synthesis/original/HT8_24_035.wav">
-                    Your browser does not support the
-                    <code>audio</code> element: p226_003.wav.
-            </audio>
-          </figure>
-        </td>
-        </tr>
-    </table> 
-    </div>
-    <br><br>
-      
-    <div>
-    <h2>*Text-to-Speech (TTS):</h2>
-        
-    </div>
-    <br><br>
-      
-      <!--<table>
+	    
+	    <table>
         <tbody>
         <tr>
-          <td nowrap width="160">Ground Truth</td>
-          <td><audio controls="" preload="none"><source src="samples/ss/GT/ss_gt_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/GT/ss_gt_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/GT/ss_gt_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/GT/ss_gt_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/GT/ss_gt_5.wav"></audio></td>
+          <td nowrap><h3>MelGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/melgan/10.wav"></audio></td>
         </tr>
         <tr>
-          <td nowrap>WaveNet (MoL)
-          <td><audio controls="" preload="none"><source src="samples/ss/WN/ss_wn_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WN/ss_wn_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WN/ss_wn_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WN/ss_wn_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WN/ss_wn_5.wav"></audio></td>
+          <td nowrap><h3>Parallel WaveGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/pwgan/10.wav"></audio></td>
         </tr>
         <tr>
-          <td nowrap>WaveGlow
-          <td><audio controls="" preload="none"><source src="samples/ss/WG/ss_wg_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WG/ss_wg_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WG/ss_wg_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WG/ss_wg_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/WG/ss_wg_5.wav"></audio></td>
+          <td nowrap><h3>WaveGlow</h3></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/waveglow/10.wav"></audio></td>
         </tr>
         <tr>
-          <td nowrap>MelGAN
-          <td><audio controls="" preload="none"><source src="samples/ss/MG/ss_mg_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/MG/ss_mg_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/MG/ss_mg_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/MG/ss_mg_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/MG/ss_mg_5.wav"></audio></td>
+          <td nowrap><h3>WaveNet</h3></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/wavenet/10.wav"></audio></td>
         </tr>
         <tr>
-          <td nowrap>HiFi-GAN V1 (ours)
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V1/ss_hgan_v1_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V1/ss_hgan_v1_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V1/ss_hgan_v1_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V1/ss_hgan_v1_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V1/ss_hgan_v1_5.wav"></audio></td>
+          <td nowrap><h3>StyleMelGAN (ours)</h3></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/stylemelgan/10.wav"></audio></td>
         </tr>
         <tr>
-          <td nowrap>HiFi-GAN V2 (ours)
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V2/ss_hgan_v2_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V2/ss_hgan_v2_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V2/ss_hgan_v2_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V2/ss_hgan_v2_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V2/ss_hgan_v2_5.wav"></audio></td>
+          <td nowrap width="160"><h3>Ground Truth</h3></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="copy_synthesis/original/10.wav"></audio></td>
         </tr>
-        <tr>
-          <td nowrap>HiFi-GAN V3 (ours)
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V3/ss_hgan_v3_1.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V3/ss_hgan_v3_2.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V3/ss_hgan_v3_3.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V3/ss_hgan_v3_4.wav"></audio></td>
-          <td><audio controls="" preload="none"><source src="samples/ss/HGAN_V3/ss_hgan_v3_5.wav"></audio></td>
-        </tr>
+
         </tbody>
       </table>
     </div>
+
+    <div>
+	<hr>
+    <h2>*Text-to-Speech (TTS):</h2>
+	    
+	    <table>
+        <tbody>
+
+        <tr>
+          <td nowrap><h3>Parallel WaveGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/pwgan/10.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap><h3>WaveNet</h3></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/wavenet/10.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap><h3>StyleMelGAN (ours)</h3></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/stylemelgan/10.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap width="160"><h3>Ground Truth</h3></td>
+          <td><audio controls="" preload="none"><source src="tts/original/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/7.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/8.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/9.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="tts/original/10.wav"></audio></td>
+        </tr>
+        </tbody>
+      </table> 
+	  <hr>
+    </div>
+    <br><br>
+      
+    <div>
+	
+    <h2>*Comparison with Recent Neural Vocoders:</h2>
+	
+	</div>
+	
+	
+	<div>
+	<hr>
+	<h3>-StyleMelGAN Vs DiffWave:</h2>
+	    <table>
+        <tbody>
+
+        <tr>
+          <td nowrap><h4>DiffWave</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/diffwave/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/diffwave/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/diffwave/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/diffwave/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/diffwave/5.wav"></audio></td>
+
+        </tr>
+		
+        <tr>
+          <td nowrap><h4>StyleMelGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/stylemelgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/stylemelgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/stylemelgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/stylemelgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/stylemelgan/5.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap width="160"><h4>Ground Truth</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/original/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/original/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/original/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/original/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_diffwave/original/5.wav"></audio></td>
+        </tr>
+        </tbody>
+      </table> 
+    </div>
+	
+	
+	<div>
+	<hr>
+	<h3>-StyleMelGAN Vs VocGAN:</h2>
+	    <table>
+        <tbody>
+
+        <tr>
+          <td nowrap><h4>VocGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/vocgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/vocgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/vocgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/vocgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/vocgan/5.wav"></audio></td>
+
+        </tr>
+		
+        <tr>
+          <td nowrap><h4>StyleMelGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/stylemelgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/stylemelgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/stylemelgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/stylemelgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/stylemelgan/5.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap width="160"><h4>Ground Truth</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/original/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/original/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/original/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/original/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_vocgan/original/5.wav"></audio></td>
+        </tr>
+        </tbody>
+      </table> 
+    </div>
+	
+	
+	<div>
+	<hr>
+	<h3>-StyleMelGAN Vs HooliGAN:</h2>
+	    <table>
+        <tbody>
+
+        <tr>
+          <td nowrap><h4>HooliGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/hooligan/7.wav"></audio></td>
+
+        </tr>
+		
+        <tr>
+          <td nowrap><h4>StyleMelGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/stylemelgan/7.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap width="160"><h4>Ground Truth</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/5.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/6.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hooligan/original/7.wav"></audio></td>
+        </tr>
+        </tbody>
+      </table> 
+    </div>
+	
+
+	<div>
+	<hr>
+	<h3>-StyleMelGAN Vs HiFi-GAN V1:</h2>
+	    <table>
+        <tbody>
+
+        <tr>
+          <td nowrap><h4>HiFi-GAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/hifigan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/hifigan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/hifigan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/hifigan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/hifigan/5.wav"></audio></td>
+
+        </tr>
+		
+        <tr>
+          <td nowrap><h4>StyleMelGAN</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/stylemelgan/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/stylemelgan/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/stylemelgan/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/stylemelgan/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/stylemelgan/5.wav"></audio></td>
+        </tr>
+        <tr>
+          <td nowrap width="160"><h4>Ground Truth</h3></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/original/1.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/original/2.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/original/3.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/original/4.wav"></audio></td>
+          <td><audio controls="" preload="none"><source src="smgan_vs_hifigan/original/5.wav"></audio></td>
+        </tr>
+        </tbody>
+      </table> 
+    </div>
+
+
+     <!--
     <br><br>
     <div>
       <a name="ms"><h2>Unseen Speakers (VCTK Dataset)</h2></a>
