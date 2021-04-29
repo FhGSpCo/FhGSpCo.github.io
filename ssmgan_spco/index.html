@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>A Streamwise GAN Vocoder for Wideband Speech Coding at Very Low Bit Rate</title>
+	<style>
+        red {color: red}
+        audio {width: 240px}
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>A Streamwise GAN Vocoder for Wideband Speech Coding at Very Low Bit Rate</h1>
+      </header>
+
+    </article>
+    <div >
+	    <a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./pics/fhg_iis_logo.png" alt="FhG_IIS" align="middle" width="240" height="60"></a>
+    </div>
+    <p><b>Authors</b>: <i>Ahmed Mustafa</i>, <i>Jan Büthe</i>, <i>Srikanth Korse</i>, <i>Kishan Gupta</i>, <i>Guillaume Fuchs</i>, <i>Nicola Pia</i>
+
+    <div>
+      <b>Abstract:</b>
+          Recently, GAN vocoders have seen rapid progress in speech synthesis, starting to outperform autoregressive models in perceptual quality with much higher generation speed.
+		  However, autoregressive vocoders are still the common choice for neural generation of speech signals coded at very low bit rates.
+		  In this paper, we present a GAN vocoder which is able to generate wideband speech waveforms from parameters coded at 1.6 kbit/s.
+		  The proposed model is a modified version of the StyleMelGAN vocoder that can run in frame-by-frame manner, making it suitable for streaming applications.
+		  The experimental results show that the proposed model significantly outperforms prior autoregressive vocoders like LPCNet and Lyra for very low bit rate speech coding, with computational complexity of about 5GFLOPs, providing a new state of the art in this domain.
+		  Moreover, this streamwise adversarial vocoder delivers quality competitive to advanced speech codecs such as EVS at 5.9 kbit/s on clean speech, which motivates further usage of feed-forward fully-convolutional models for low bit rate speech coding.
+			<br><br>
+			<b>Preprint:</b> TBD, submitted to: <a href="https://www.waspaa.com">WASPAA 2021</a>
+    </div>
+    <br><br>
+    <div> 
+        <p style="line-height:1.5;text-align:left;" id="fnref:1">
+		<span style="font-size:15pt"> - For all samples in this demo:</span>
+		<ul>
+			<li> <span style="font-size:13pt"> Both SSMGAN (our proposed model) and LPCNet are trained on the full training set of the VCTK corpus.</span></li>
+            <li> <span style="font-size:13pt"> LPCNet is built and trained based on the <a href="https://github.com/mozilla/LPCNet">official implementation</a>.</span></li>     
+		    <li> <span style="font-size:13pt"> The Lyra codec is obtained from the <a href="https://github.com/google/lyra">official repository</a>, with version <em>0.0.1</em> and commit <em>9358429</em> which is the latest update at the time of releasing this demo.</span></li>
+		</ul>  
+        </p>
+		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt">- <a href="#CoU">Conditions of Use</a>.</span></p>
+    </div>
+
+    <div>
+	<hr>
+      <h2>Seen VCTK Speakers:</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+			<th nowrap><h3>SSMGAN 1.6kbit/s (ours)</h3></th>
+            <th nowrap><h3>LPCNet 1.6kbit/s</h3></th>
+            <th nowrap><h3>Lyra 3kbit/s</h3></th>
+            <th nowrap><h3>EVS 5.9kbit/s</h3></th>
+            <th nowrap><h3>AMR-WB 6.6kbit/s</h3></th>
+            <th nowrap><h3>Speex 4kbit/s</h3></th>
+            
+		</tr>
+		
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/trainset/p245_203.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/trainset/p245_203.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/trainset/p245_203.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/trainset/p245_203.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/trainset/p245_203.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/trainset/p245_203.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/trainset/p245_203.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/trainset/p246_167.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/trainset/p246_167.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/trainset/p246_167.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/trainset/p246_167.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/trainset/p246_167.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/trainset/p246_167.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/trainset/p246_167.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/trainset/p254_207.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/trainset/p254_207.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/trainset/p254_207.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/trainset/p254_207.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/trainset/p254_207.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/trainset/p254_207.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/trainset/p254_207.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/trainset/p265_314.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/trainset/p265_314.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/trainset/p265_314.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/trainset/p265_314.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/trainset/p265_314.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/trainset/p265_314.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/trainset/p265_314.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/trainset/p301_054.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/trainset/p301_054.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/trainset/p301_054.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/trainset/p301_054.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/trainset/p301_054.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/trainset/p301_054.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/trainset/p301_054.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+    <div>
+	<hr>
+      <h2>Unseen VCTK Speakers:</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+			<th nowrap><h3>SSMGAN 1.6kbit/s (ours)</h3></th>
+            <th nowrap><h3>LPCNet 1.6kbit/s</h3></th>
+            <th nowrap><h3>Lyra 3kbit/s</h3></th>
+            <th nowrap><h3>EVS 5.9kbit/s</h3></th>
+            <th nowrap><h3>AMR-WB 6.6kbit/s</h3></th>
+            <th nowrap><h3>Speex 4kbit/s</h3></th>
+            
+		</tr>
+		
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/testset/p232_003.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/testset/p232_003.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/testset/p232_003.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/testset/p232_003.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/testset/p232_003.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/testset/p232_003.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/testset/p232_003.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/testset/p232_011.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/testset/p232_011.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/testset/p232_011.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/testset/p232_011.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/testset/p232_011.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/testset/p232_011.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/testset/p232_011.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/testset/p232_104.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/testset/p232_104.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/testset/p232_104.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/testset/p232_104.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/testset/p232_104.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/testset/p232_104.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/testset/p232_104.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/testset/p257_007.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/testset/p257_007.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/testset/p257_007.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/testset/p257_007.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/testset/p257_007.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/testset/p257_007.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/testset/p257_007.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/testset/p257_008.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/testset/p257_008.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/testset/p257_008.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/testset/p257_008.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/testset/p257_008.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/testset/p257_008.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/testset/p257_008.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="vctk_samples/original/testset/p257_009.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/smagn_1k6bps/testset/p257_009.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lpcnet_1k6bps/testset/p257_009.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/lyra_3k/testset/p257_009.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/evs_5k9/testset/p257_009.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/amrwb_6k/testset/p257_009.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="vctk_samples/speex_4k/testset/p257_009.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+    <br><br>
+      
+    <div>
+	<hr>
+	
+    <h2>Unseen CMU ARCTIC Speakers</h2>
+	    
+	  <ul>
+	  
+	      <li><span style="font-size:13pt"> Because the VCTK corpus has only 2 unseen speakers for testing, we resort to the <a href="http://www.festvox.org/cmu_arctic/">CMU ARCTIC Database</a> to obtain more unseen speakers.</span></li>
+		  <li><span style="font-size:13pt"> It provides clean speech signals with similar recording quality to VCTK.</span></li>
+		  <li><span style="font-size:13pt"> &#169 Carnegie Mellon University, 2003, All Rights Reserved.</span></li>
+       </ul>
+	
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+			<th nowrap><h3>SSMGAN 1.6kbit/s (ours)</h3></th>
+            <th nowrap><h3>LPCNet 1.6kbit/s</h3></th>
+            <th nowrap><h3>Lyra 3kbit/s</h3></th>
+            <th nowrap><h3>EVS 5.9kbit/s</h3></th>
+            <th nowrap><h3>AMR-WB 6.6kbit/s</h3></th>
+            <th nowrap><h3>Speex 4kbit/s</h3></th>
+            
+		</tr>
+		
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/original/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/smagn_1k6bps/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lpcnet_1k6bps/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lyra_3k/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/evs_5k9/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/amrwb_6k/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/speex_4k/arctic_a0023.wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/original/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/smagn_1k6bps/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lpcnet_1k6bps/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lyra_3k/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/evs_5k9/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/amrwb_6k/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/speex_4k/arctic_a0531.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/original/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/smagn_1k6bps/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lpcnet_1k6bps/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lyra_3k/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/evs_5k9/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/amrwb_6k/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/speex_4k/arctic_a0543.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/original/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/smagn_1k6bps/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lpcnet_1k6bps/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lyra_3k/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/evs_5k9/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/amrwb_6k/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/speex_4k/arctic_b0201.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/original/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/smagn_1k6bps/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lpcnet_1k6bps/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lyra_3k/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/evs_5k9/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/amrwb_6k/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/speex_4k/arctic_b0397.wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/original/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/smagn_1k6bps/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lpcnet_1k6bps/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/lyra_3k/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/evs_5k9/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/amrwb_6k/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="non_vctk_samples/speex_4k/arctic_b0496.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+	<br><br>
+	<div>
+	<hr>
+	<h2 id="CoU">Conditions of Use:</h2>
+        <p style="line-height:1.5;text-align:left;">
+		<ul>
+			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based on material that is freely available on <a href="https://www.cstr.ed.ac.uk/">The Centre for Speech Technology Research (CSTR) at Edinburgh University</a> for VCTK and <a href="https://www.lti.cs.cmu.edu/">The Language Technologies Institute at Carnegie Mellon University</a> for CMU ARCTIC.</span></li>
+			<li><span style="font-size:13pt">The content has been processed using generally accepted rules of technology as well as scientific care, but not actual attainment of any expected feature.</span></li>
+			<li><span style="font-size:13pt">With the exception of willful intent or gross negligence, Fraunhofer IIS shall not be liable that Open Source software or other third party software is free from any error or claim or its fitness for a particular purpose, even if included within the Sound Material.</span></li>
+			<li><span style="font-size:13pt">The Sound Material shall only be used for testing and appreciating speech synthesis techniques and shall not be copied, publicly transmitted, distributed, lent and modified for any other reason.</span></li>
+			<li><span style="font-size:13pt">No representation or warranties are made or implied regarding the accuracy, non-infringement, fitness for a particular purpose of Sound Material.</span></li>
+			<li><span style="font-size:13pt">Unless the conditions shown above are agreed by the recipient, no permission is granted for any use including copy, public transmission, distribution, lend, and modification.</span></li>
+			<li><span style="font-size:13pt">Copyright and Permission notice shall be duplicated whenever Sound Material are copied, distributed or publicly transmitted.</span></li>
+			<li><span style="font-size:13pt">The Sound material cannot be distributed with charge. <a href="#fnref:1"><sup>[return]</sup></a></span></li>
+		</ul>  
+       
+        </p>
+	</div>
+  </body>
+</html>
