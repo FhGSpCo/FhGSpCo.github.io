@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>NESC: Robust Neural End-2-End Speech Coding with SSMGAN</title>
+	<style>
+        red {color: red}
+        audio {width: 240px}
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>NESC: Robust Neural End-2-End Speech Coding with SSMGAN</h1>
+      </header>
+
+    </article>
+    <div >
+	    <a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./pics/fhg_iis_logo.png" alt="FhG_IIS" width="240" height="77" align="middle"></a>
+    </div>
+    <p><b>Authors</b>: <i>Nicola Pia</i>, <i>Kishan Gupta</i>, <i>Srikanth Korse</i>, <i>Markus Multrus</i>, <i>Guillaume Fuchs</i>.
+
+    <div>
+      <b>Abstract:</b>
+          Neural networks have proven to be a formidable tool to tackle the problem of speech coding at very low bit rates.
+          However, the design of a robust neural coder that can be operated robustly under real-world conditions remains a major challenge.
+          Therefore, we present Neural End-2-End Speech Codec (NESC) a robust, scalable end-to-end neural speech codec for high-quality wideband speech coding at 3 kbps.
+          The encoder uses a new architecture configuration, which relies on our proposed DualPathConvRNN layer, while the decoder architecture is based on our previous work <a href="https://arxiv.org/abs/2108.04051">SSMGAN</a>.
+          Our subjective listening tests show that NESC is particularly robust to unseen conditions and signal perturbations.
+	  <br><br>
+	  <b>Preprint:</b> submitted to <a href="https://interspeech2022.org">INTERSPEECH 2022</a>
+    </div>
+    <br><br>
+    <div> 
+        <p style="line-height:1.5;text-align:left;" id="fnref:1">
+		<span style="font-size:15pt"> For this demo:</span>
+		<ul>
+			<li> <span style="font-size:13pt"> NESC (our proposed model) is trained on the <a href="https://research.google/tools/datasets/libri-tts/"> LibriTTS Dataset</a> provided under <a href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y"> Creative Commons License</a>.</span></li>
+			<li> <span style="font-size:13pt"> SSMGAN is trained on the full training set of the <a href="https://datashare.ed.ac.uk/handle/10283/2950"> VCTK corpus</a> provided under <a href= "https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y"> Creative Commons License</a>.</span></li>
+			<li> <span style="font-size:13pt"> All test items come from the <a href="http://www.festvox.org/cmu_arctic/"> CMU ARCTIC Dataset</a> provided under the <a href="http://www.festvox.org/cmu_arctic/cmu_arctic_report.pdf"> "free-software" License (page 13)</a>.</span></li>
+            <li> <span style="font-size:13pt"> The test items in the Section "CMU Speakers - noisy speech" are augmented using noise samples from the <a href="https://github.com/microsoft/DNS-Challenge"> MS DNS-Challenge</a> provided under <a href= "https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y"> Creative Commons License</a> and room impulse responses from the <a href="http://www.openslr.org/28/"> Open SLR 28 Dataset</a> provided under <a href= "https://www.apache.org/licenses/LICENSE-2.0.txt"> Apache 2.0 License</a>.</span></li>
+		</ul>  
+        </p>
+		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of Use</a>.</span></p>
+    </div>
+
+    <div>
+	<hr>
+      <h2>CMU Speakers - noisy speech</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+            <th nowrap><h3>NESC 3kbit/s (ours)</h3></th>
+			<th nowrap><h3>SSMGAN 1.6kbit/s</h3></th>
+            <th nowrap><h3>EVS 5.9kbit/s</h3></th>
+            
+		</tr>
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/original/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/nesc_v0/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/smgan_1k6bps/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/evs_5k9/arctic_a0023.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/original/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/nesc_v0/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/smgan_1k6bps/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/evs_5k9/arctic_a0531.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/original/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/nesc_v0/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/smgan_1k6bps/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/evs_5k9/arctic_a0543.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/original/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/nesc_v0/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/smgan_1k6bps/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/evs_5k9/arctic_b0201.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/original/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/nesc_v0/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/smgan_1k6bps/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/evs_5k9/arctic_b0397.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/original/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/nesc_v0/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/smgan_1k6bps/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/cmu/evs_5k9/arctic_b0496.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+    <div>
+	<hr>
+      <h2>CMU Speakers - clean speech</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+            <th nowrap><h3>NESC 3kbit/s (ours)</h3></th>
+			<th nowrap><h3>SSMGAN 1.6kbit/s</h3></th>
+            <th nowrap><h3>EVS 5.9kbit/s</h3></th>
+            
+		</tr>
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/original/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/nesc_v0/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/smgan_1k6bps/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/evs_5k9/arctic_a0023.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/original/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/nesc_v0/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/smgan_1k6bps/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/evs_5k9/arctic_a0531.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/original/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/nesc_v0/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/smgan_1k6bps/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/evs_5k9/arctic_a0543.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/original/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/nesc_v0/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/smgan_1k6bps/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/evs_5k9/arctic_b0201.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/original/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/nesc_v0/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/smgan_1k6bps/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/evs_5k9/arctic_b0397.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/original/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/nesc_v0/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/smgan_1k6bps/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/cmu/evs_5k9/arctic_b0496.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+	<br><br>
+	<div>
+	<hr>
+	<h2 id="CoU">Conditions of Use:</h2>
+        <p style="line-height:1.5;text-align:left;">
+		<ul>
+			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based on material that is freely available on <a href="https://www.lti.cs.cmu.edu/">The Language Technologies Institute at Carnegie Mellon University</a> for CMU ARCTIC, <a href="https://github.com/microsoft/DNS-Challenge">MS DNS-Challenge</a> for background noise, and <a href="http://www.openslr.org/28/">Open SLR 28 Dataset</a> for room impulse responses.</span></li>
+			<li><span style="font-size:13pt">The content has been processed using generally accepted rules of technology as well as scientific care, but not actual attainment of any expected feature.</span></li>
+			<li><span style="font-size:13pt">With the exception of willful intent or gross negligence, Fraunhofer IIS shall not be liable that Open Source software or other third party software is free from any error or claim or its fitness for a particular purpose, even if included within the Sound Material.</span></li>
+			<li><span style="font-size:13pt">The Sound Material shall only be used for testing and appreciating speech synthesis techniques and shall not be copied, publicly transmitted, distributed, lent and modified for any other reason.</span></li>
+			<li><span style="font-size:13pt">No representation or warranties are made or implied regarding the accuracy, non-infringement, fitness for a particular purpose of Sound Material.</span></li>
+			<li><span style="font-size:13pt">Unless the conditions shown above are agreed by the recipient, no permission is granted for any use including copy, public transmission, distribution, lend, and modification.</span></li>
+			<li><span style="font-size:13pt">Copyright and Permission notice shall be duplicated whenever Sound Material are copied, distributed or publicly transmitted.</span></li>
+			<li><span style="font-size:13pt">The Sound material cannot be distributed with charge. <a href="#fnref:1"><sup>[return]</sup></a></span></li>
+		</ul>  
+       
+        </p>
+	</div>
+  </body>
+</html>
