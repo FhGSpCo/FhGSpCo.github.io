@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>On Improving Error Resilience of Neural End-to-End Speech Coders</title>
+	<style>
+		red {
+			color: red
+		}
+
+		audio {
+			width: 240px
+		}
+	</style>
+</head>
+
+<body>
+	<article>
+		<header>
+			<h1>On Improving Error Resilience of Neural End-to-End Speech Coders</h1>
+		</header>
+
+	</article>
+	<div>
+		<a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./pics/fhg_iis_logo.png" alt="FhG_IIS"
+				width="240" height="77" align="middle"></a>
+	</div>
+	<p><b>Authors</b>: <i>Kishan Gupta</i>, <i>Nicola Pia</i>, <i>Andrea Brendel</i>, <i>Markus Multrus</i>,
+		<i>Guillaume Fuchs</i>.
+
+	<div>
+		<b>Abstract:</b>
+		Error resilient tools like Packet Loss Concealment (PLC)
+		and Forward Error Correction (FEC) are essential to maintain a
+		reliable speech communication for applications like Voice over
+		Internet Protocol (VoIP), where packets are frequently delayed
+		and lost. In recent times, end-to-end neural speech codecs have
+		seen a significant rise, due to their ability to transmit speech signal
+		at low bitrates but few considerations were made about their
+		error resilience in a real system. Recently introduced Neural
+		End-to-End Speech Codec (NESC) can reproduce high quality
+		natural speech at low bitrates. We extend its robustness to
+		packet losses by adding a low complexity network to predict
+		the codebook indices in latent space. Furthermore, we propose
+		a method to add an in-band FEC at an additional bitrate
+		of 0.8 kbps. Both subjective and objective assessment indicate
+		the effectiveness of proposed methods, and demonstrate that
+		coupling PLC and FEC provide significant robustness against
+		packet losses.
+		<br><br>
+		<b>Preprint:</b> submitted to <a href="https://interspeech2024.org">INTERSPEECH 2024</a>
+	</div>
+	<br><br>
+	<div>
+		<p style="line-height:1.5;text-align:left;" id="fnref:1">
+			<span style="font-size:15pt"> For this demo:</span>
+		<ul>
+			<li> <span style="font-size:13pt"> The baseline NESC and the error resilient tools (PLC and FEC) are trained
+					using clean
+					speech items from <a href="https://research.google/tools/datasets/libri-tts/"> LibriTTS Dataset</a>
+					provided under <a
+						href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y">
+						Creative Commons License</a> and
+					<a href="https://datashare.ed.ac.uk/handle/10283/2950"> VCTK corpus</a> provided under <a
+						href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y">
+						Creative Commons License</a>, with data augmentation using , <a
+						href="https://github.com/microsoft/DNS-Challenge">MS DNS-Challenge</a>
+					for background noise, and
+					<a href="http://www.openslr.org/28/">Open SLR 28 Dataset</a> for room
+					impulse responses.</span></li></span></li>
+			<li> <span style="font-size:13pt"> Test items of the demo are unseen during the training of NESC and
+					error
+					resilient tools, and come from the test set of VCTK and the <a
+						href="http://www.festvox.org/cmu_arctic/"> CMU ARCTIC Dataset</a> provided under the
+					<a href="http://www.festvox.org/cmu_arctic/cmu_arctic_report.pdf"> "free-software" License
+						(page 13)</a>.</span></li>
+		</ul>
+		</p>
+		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of
+					Use</a>.</span></p>
+	</div>
+
+	<div>
+		<hr>
+		<h2>CC=Clean Channel, no error - EPC=Error-Prone Channel with ~8% of packet loss</h2>
+
+		<h3>VCTK test items</h3>
+		<table>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps CC</h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-muting </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 4.0kbps EPC-FEC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps CC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
+					</th>
+
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_3200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_mute_3200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_plc_3200/p257_008.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/nesc_fec_4000/p257_008.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_13200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_plc_13200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_fec_13200/p257_008.wav">
+						</audio></td>
+
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_3200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_mute_3200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_plc_3200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/nesc_fec_4000/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_13200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_plc_13200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_fec_13200/p232_011.wav">
+						</audio></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>CMU Artic items</h3>
+		<table>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps CC</h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-muting </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 4.0kbps EPC-FEC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps CC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_3200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_mute_3200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_plc_3200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/nesc_fec_4000/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_13200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_plc_13200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_fec_13200/arctic_b0397.wav">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_3200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_mute_3200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_plc_3200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/nesc_fec_4000/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_13200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_plc_13200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_fec_13200/arctic_b0201.wav">
+						</audio></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<br><br>
+	<div>
+		<hr>
+		<h2 id=" CoU">Conditions of Use:</h2>
+		<p style="line-height:1.5;text-align:left;">
+		<ul>
+			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based
+					on material that is
+					freely available on <a href="https://www.lti.cs.cmu.edu/">The Language
+						Technologies Institute at
+						Carnegie Mellon University</a> for CMU ARCTIC, and on <a
+						href="https://datashare.ed.ac.uk/handle/10283/2950"> The University of Edinburgh</a> for VCTK.
+			<li><span style="font-size:13pt">The content has been processed using generally
+					accepted rules of technology
+					as well as scientific care, but not actual attainment of any expected
+					feature.</span></li>
+			<li><span style="font-size:13pt">With the exception of willful intent or gross
+					negligence, Fraunhofer IIS
+					shall not be liable that Open Source software or other third party software
+					is free from any error
+					or claim or its fitness for a particular purpose, even if included within
+					the Sound Material.</span>
+			</li>
+			<li><span style="font-size:13pt">The Sound Material shall only be used for testing
+					and appreciating speech
+					synthesis techniques and shall not be copied, publicly transmitted,
+					distributed, lent and modified
+					for any other reason.</span></li>
+			<li><span style="font-size:13pt">No representation or warranties are made or implied
+					regarding the accuracy,
+					non-infringement, fitness for a particular purpose of Sound Material.</span>
+			</li>
+			<li><span style="font-size:13pt">Unless the conditions shown above are agreed by the
+					recipient, no
+					permission is granted for any use including copy, public transmission,
+					distribution, lend, and
+					modification.</span></li>
+			<li><span style="font-size:13pt">Copyright and Permission notice shall be duplicated
+					whenever Sound Material
+					are copied, distributed or publicly transmitted.</span></li>
+			<li><span style="font-size:13pt">The Sound material cannot be distributed with
+					charge. <a href="#fnref:1"><sup>[return]</sup></a></span></li>
+		</ul>
+
+		</p>
+	</div>
+</body>
+
+</html>
