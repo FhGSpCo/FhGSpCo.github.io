@@ -26,8 +26,8 @@
 		<a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./pics/fhg_iis_logo.png" alt="FhG_IIS"
 				width="240" height="77" align="middle"></a>
 	</div>
-	<p><b>Authors</b>: <i>Kishan Gupta</i>, <i>Nicola Pia</i>, <i>Andrea Brendel</i>, <i>Markus Multrus</i>,
-		<i>Guillaume Fuchs</i>.
+	<p><b>Authors</b>: <i>Kishan Gupta</i>, <i>Nicola Pia</i>, <i>Andrea Brendel</i>, <i>Guillaume Fuchs</i>, <i>Markus
+			Multrus</i>.
 
 	<div>
 		<b>Abstract:</b>
@@ -57,24 +57,15 @@
 			<span style="font-size:15pt"> For this demo:</span>
 		<ul>
 			<li> <span style="font-size:13pt"> The baseline NESC and the error resilient tools (PLC and FEC) are trained
-					using clean
-					speech items from <a href="https://research.google/tools/datasets/libri-tts/"> LibriTTS Dataset</a>
-					provided under <a
-						href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y">
-						Creative Commons License</a> and
-					<a href="https://datashare.ed.ac.uk/handle/10283/2950"> VCTK corpus</a> provided under <a
-						href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/license_text?sequence=3&isAllowed=y">
-						Creative Commons License</a>, with data augmentation using , <a
-						href="https://github.com/microsoft/DNS-Challenge">MS DNS-Challenge</a>
-					for background noise, and
-					<a href="http://www.openslr.org/28/">Open SLR 28 Dataset</a> for room
-					impulse responses.</span></li></span></li>
+					using speech items from <a href="https://research.google/tools/datasets/libri-tts/"> LibriTTS
+						Dataset</a>
+					and <a href="https://datashare.ed.ac.uk/handle/10283/2950"> VCTK corpus</a>.
+				</span></li>
 			<li> <span style="font-size:13pt"> Test items of the demo are unseen during the training of NESC and
-					error
+					the error
 					resilient tools, and come from the test set of VCTK and the <a
-						href="http://www.festvox.org/cmu_arctic/"> CMU ARCTIC Dataset</a> provided under the
-					<a href="http://www.festvox.org/cmu_arctic/cmu_arctic_report.pdf"> "free-software" License
-						(page 13)</a>.</span></li>
+						href="http://www.festvox.org/cmu_arctic/"> CMU ARCTIC Database</a>.
+				</span></li>
 		</ul>
 		</p>
 		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of
@@ -83,14 +74,51 @@
 
 	<div>
 		<hr>
-		<h2>CC=Clean Channel, no error - EPC=Error-Prone Channel with ~8% of packet loss</h2>
+		<h2>CC=Clean Channel, no error <br> EPC=Error-Prone Channel with ~8% packet loss</h2>
 
-		<h3>VCTK test items</h3>
-		<table>
+		<br>
+		<h3>VCTK test item - Female</h3>
+		<table style='font-size:85%'>
 			<tbody>
 				<tr>
 					<th nowrap width="100">
 						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps CC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kps EPC-LPCNet PLC </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_13200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_plc_13200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_fec_13200/p257_008.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/lpcnet_plc/p257_008.wav">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
 					</th>
 					<th nowrap>
 						<h3>NESC 3.2kbps CC</h3>
@@ -104,22 +132,10 @@
 					<th nowrap>
 						<h3>NESC 4.0kbps EPC-FEC </h3>
 					</th>
-					<th nowrap>
-						<h3>EVS 13.2kbps CC </h3>
-					</th>
-					<th nowrap>
-						<h3>EVS 13.2kbps EPC-PLC </h3>
-					</th>
-					<th nowrap>
-						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
-					</th>
-
 				</tr>
 
 				<tr>
-					<td><audio controls="" preload="none">
-							<source src="audio/ref/p257_008.wav">
-						</audio></td>
+					<td></td>
 					<td><audio controls="" preload="none">
 							<source src="audio/nesc_3200/p257_008.wav">
 						</audio></td>
@@ -132,33 +148,36 @@
 					<td><audio controls="" preload=" none">
 							<source src="audio/nesc_fec_4000/p257_008.wav"">
 						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/evs_13200/p257_008.wav">
-						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/evs_plc_13200/p257_008.wav">
-						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/evs_fec_13200/p257_008.wav">
-						</audio></td>
+				</tr>
 
+			</tbody>
+		</table>
+
+		<br>
+		<h3>VCTK test item - Male</h3>
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width=" 100">
+							<h3>Original</h3>
+							</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps CC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kps EPC-LPCNet PLC </h3>
+					</th>
 				</tr>
 
 				<tr>
-					<td><audio controls="" preload="none">
-							<source src="audio/ref/p232_011.wav">
-						</audio></td>
-					<td><audio controls="" preload="none">
-							<source src="audio/nesc_3200/p232_011.wav">
-						</audio></td>
-					<td><audio controls="" preload="none">
-							<source src="audio/nesc_mute_3200/p232_011.wav">
-						</audio></td>
-					<td><audio controls="" preload="none">
-							<source src="audio/nesc_plc_3200/p232_011.wav">
-						</audio></td>
 					<td><audio controls="" preload=" none">
-							<source src="audio/nesc_fec_4000/p232_011.wav">
+							<source src="audio/ref/p232_011.wav">
 						</audio></td>
 					<td><audio controls="" preload=" none">
 							<source src="audio/evs_13200/p232_011.wav">
@@ -169,16 +188,14 @@
 					<td><audio controls="" preload=" none">
 							<source src="audio/evs_fec_13200/p232_011.wav">
 						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/lpcnet_plc/p232_011.wav">
+						</audio></td>
 				</tr>
-			</tbody>
-		</table>
 
-		<h3>CMU Artic items</h3>
-		<table>
-			<tbody>
 				<tr>
-					<th nowrap width="100">
-						<h3>Original</h3>
+					<th nowrap width=" 100">
+						<h3></h3>
 					</th>
 					<th nowrap>
 						<h3>NESC 3.2kbps CC</h3>
@@ -192,6 +209,35 @@
 					<th nowrap>
 						<h3>NESC 4.0kbps EPC-FEC </h3>
 					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_3200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_mute_3200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_plc_3200/p232_011.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/nesc_fec_4000/p232_011.wav">
+						</audio></td>
+
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+		<h3>CMU Artic item - Female</h3>
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
 					<th nowrap>
 						<h3>EVS 13.2kbps CC </h3>
 					</th>
@@ -201,23 +247,14 @@
 					<th nowrap>
 						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
 					</th>
+					<th nowrap>
+						<h3>NESC 3.2kps EPC-LPCNet PLC </h3>
+					</th>
 				</tr>
 
 				<tr>
 					<td><audio controls="" preload="none">
 							<source src="audio/ref/arctic_b0397.wav">
-						</audio></td>
-					<td><audio controls="" preload="none">
-							<source src="audio/nesc_3200/arctic_b0397.wav">
-						</audio></td>
-					<td><audio controls="" preload="none">
-							<source src="audio/nesc_mute_3200/arctic_b0397.wav">
-						</audio></td>
-					<td><audio controls="" preload="none">
-							<source src="audio/nesc_plc_3200/arctic_b0397.wav">
-						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/nesc_fec_4000/arctic_b0397.wav">
 						</audio></td>
 					<td><audio controls="" preload=" none">
 							<source src="audio/evs_13200/arctic_b0397.wav">
@@ -228,12 +265,105 @@
 					<td><audio controls="" preload=" none">
 							<source src="audio/evs_fec_13200/arctic_b0397.wav">
 						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/lpcnet_plc/arctic_b0397.wav">
+						</audio></td>
+				</tr>
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps CC</h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-muting </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 4.0kbps EPC-FEC </h3>
+					</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_3200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_mute_3200/arctic_b0397.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/nesc_plc_3200/arctic_b0397.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/nesc_fec_4000/arctic_b0397.wav"">
+						</audio></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+		<h3>CMU Artic item - Male</h3>
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width=" 100">
+							<h3>Original</h3>
+							</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps CC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>EVS 13.2kbps-CA EPC-FEC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kps EPC-LPCNet PLC </h3>
+					</th>
 				</tr>
 
 				<tr>
-					<td><audio controls="" preload="none">
+					<td><audio controls="" preload=" none">
 							<source src="audio/ref/arctic_b0201.wav">
 						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_13200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_plc_13200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_fec_13200/arctic_b0201.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/lpcnet_plc/arctic_b0201.wav">
+						</audio></td>
+				</tr>
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps CC</h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-muting </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 3.2kbps EPC-PLC </h3>
+					</th>
+					<th nowrap>
+						<h3>NESC 4.0kbps EPC-FEC </h3>
+					</th>
+				</tr>
+
+
+				<tr>
+					<td></td>
 					<td><audio controls="" preload="none">
 							<source src="audio/nesc_3200/arctic_b0201.wav">
 						</audio></td>
@@ -246,17 +376,8 @@
 					<td><audio controls="" preload=" none">
 							<source src="audio/nesc_fec_4000/arctic_b0201.wav">
 						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/evs_13200/arctic_b0201.wav">
-						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/evs_plc_13200/arctic_b0201.wav">
-						</audio></td>
-					<td><audio controls="" preload=" none">
-							<source src="audio/evs_fec_13200/arctic_b0201.wav">
-						</audio></td>
-				</tr>
 
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -269,10 +390,14 @@
 		<ul>
 			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based
 					on material that is
-					freely available on <a href="https://www.lti.cs.cmu.edu/">The Language
-						Technologies Institute at
-						Carnegie Mellon University</a> for CMU ARCTIC, and on <a
-						href="https://datashare.ed.ac.uk/handle/10283/2950"> The University of Edinburgh</a> for VCTK.
+					freely available on <a
+						href="http://www.festvox.org/cmu_arctic/">http://www.festvox.org/cmu_arctic</a> for CMU ARCTIC
+					database provided under the
+					<a href="http://www.festvox.org/cmu_arctic/cmu_arctic_report.pdf"> "free-software" License
+						(page 13)</a>, and on <a href="https://datashare.ed.ac.uk/handle/10283/2950">The
+						University of Edinburgh</a> for the VCTK corpus provided under <a
+						href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/README.txt?sequence=1&isAllowed=y">
+						Creative Commons License</a>.
 			<li><span style="font-size:13pt">The content has been processed using generally
 					accepted rules of technology
 					as well as scientific care, but not actual attainment of any expected
