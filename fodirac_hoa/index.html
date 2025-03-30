@@ -39,22 +39,510 @@
 	  <br><br>
 	    Accepted at ICASSP 2025 <a href="https://doi.org/10.1109/ICASSP49660.2025.10888497">Paper</a>
     </div>
-    <br><br>
-    <div> 
-        <p style="line-height:1.5;text-align:left;" id="fnref:1">
-		<span style="font-size:15pt"> Demo to come</span>
+    <br>
+	<div>
+		<p style="line-height:1.5;text-align:left;" id="fnref:1">
+			<span style="font-size:15pt"> For this demo:</span>
 		<ul>
-			<li> <span style="font-size:13pt"> </a>.</span></li>
-		</ul>  
-        </p>
-		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of Use</a>.</span></p>
-    </div>
+			<li> <span style="font-size:13pt"> The 3D audio scenes were artificially created by panning in 3rd Higher Order Ambisonics (HOA3) speech items from the <a href="https://datashare.ed.ac.uk/handle/10283/2950"> VCTK corpus</a>, and adding ambience recordings in First Order Ambisonics (FOA) from <a href="https://library.soundfield.com/">Ambisonic sound library</a>.
+				</span></li>
+			<li> <span style="font-size:13pt"> Mutli-mono EVS was in Constant Bit-Rate, Super-Wideband modus when avalaible to code FOA.</span></li>
+			<li> <span style="font-size:13pt"> OPUS was used in Variable Bit-Rate modus (VBR) with Channel Mapping Family (CMF) 3 to code FOA.</span></li>
+			<li> <span style="font-size:13pt"> Unlike multi-mono EVS and OPUS, the proposed FO-DirAC-based coding at bitrates demonstrated can transmit and synthesize HOA3.</span></li>
+			<li> <span style="font-size:13pt"> FOA and HOA3 signals were binauralized for static headphones playback using the Magnitude Least-Squares (MagLS) binaural rendering and the <a href="https://www.york.ac.uk/sadie-project/database.html">Sadie II KU100 HRTFs</a>.</span></li>
+		</ul>
+		</p>
+		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of
+					Use</a>.</span></p>
+	</div>
+
+	<h3>All items are binauralized and must be listened to through headphones 🎧.</h3>
+
+	<div>
+		<hr>
+		<h3><img src="./pics/4static.png" alt="4 static" align="middle" width=200px height=auto> 4 static speakers</h3>
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 13.2kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 32 kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 64 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 128 kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/4static.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_13200/4static.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_32000/4static.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_64000/4static.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_128000/4static.wav">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3> multi-mono EVS 4x8=32kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x16.4=65.6 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x32=128kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_32000/4static.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_65600/4static.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_128000/4static.wav"">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 32kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 64kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 128kbps VBR</h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_32000/4static.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_64000/4static.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/opus_128000/4static.wav"">
+						</audio></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+
+
+		<hr>
+		<h3><img src="./pics/4static_ambi.png" alt="4 static" align="middle" width="200px" height="auto">4 static speakers with outdoor ambience</h3>
+		
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 13.2kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 32 kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 64 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 128 kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/4static_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_13200/4static_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_32000/4static_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_64000/4static_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_128000/4static_ambi.wav">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3> multi-mono EVS 4x8=32kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x16.4=65.6 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x32=128kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_32000/4static_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_65600/4static_ambi.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_128000/4static_ambi.wav"">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 32kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 64kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 128kbps VBR</h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_32000/4static_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_64000/4static_ambi.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/opus_128000/4static_ambi.wav"">
+						</audio></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<hr>
+		<h3><img src="./pics/2rot.png" alt="2 rotating" align="middle" width="200px" height="auto">2 rotating speakers</h3>
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 13.2kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 32 kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 64 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 128 kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/2rot.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_13200/2rot.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_32000/2rot.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_64000/2rot.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_128000/2rot.wav">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3> multi-mono EVS 4x8=32kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x16.4=65.6 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x32=128kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_32000/2rot.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_65600/2rot.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_128000/2rot.wav"">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 32kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 64kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 128kbps VBR</h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_32000/2rot.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_64000/2rot.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/opus_128000/2rot.wav"">
+						</audio></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<hr>
+		<h3><img src="./pics/2rot_ambi.png" alt="2rot_ambi" align="middle" width="200px" height="auto">2 rotating speakers with indoor ambience</h3>
+		<table style='font-size:85%'>
+			<tbody>
+				<tr>
+					<th nowrap width="100">
+						<h3>Original</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 13.2kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 32 kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 64 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>FO-DirAC 128 kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td><audio controls="" preload="none">
+							<source src="audio/ref/2rot_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_13200/2rot_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_32000/2rot_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_64000/2rot_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/fodirac_128000/2rot_ambi.wav">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3> multi-mono EVS 4x8=32kbps</h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x16.4=65.6 kbps </h3>
+					</th>
+					<th nowrap>
+						<h3>multi-mono EVS 4x32=128kbps </h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_32000/2rot_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/evs_65600/2rot_ambi.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/evs_128000/2rot_ambi.wav"">
+						</audio></td>
+				</tr>
+
+				<tr>
+					<th nowrap width="100">
+						<h3></h3>
+					</th>
+					<th nowrap>
+						<h3>n.a.</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 32kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 64kbps VBR</h3>
+					</th>
+					<th nowrap>
+						<h3>OPUS 128kbps VBR</h3>
+					</th>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_32000/2rot_ambi.wav">
+						</audio></td>
+					<td><audio controls="" preload="none">
+							<source src="audio/opus_64000/2rot_ambi.wav"">
+						</audio></td>
+					<td><audio controls="" preload=" none">
+							<source src="audio/opus_128000/2rot_ambi.wav"">
+						</audio></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
 
 	<br><br>
 	<div>
-	<hr>
-	<h2 id="CoU">Conditions of Use:</h2>
-      
+		<hr>
+		<h2 id=" CoU">Conditions of Use:</h2>
+		<p style="line-height:1.5;text-align:left;">
+		<ul>
+			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based
+					on material that is
+					freely available on <a href="https://datashare.ed.ac.uk/handle/10283/2950">The
+						University of Edinburgh</a> for the VCTK corpus provided under <a
+						href="https://datashare.ed.ac.uk/bitstream/handle/10283/3443/README.txt?sequence=1&isAllowed=y">
+						Creative Commons License</a>, and on <a href="https://library.soundfield.com">The
+							Ambisonic Sound Library</a> for the ambience recordings provided under 
+							<a href="https://creativecommons.org/licenses/by/4.0/">
+							Creative Commons Attribution 4.0 International</a>, 
+							and on <a href="https://www.york.ac.uk/sadie-project/database.html">The
+							York University</a> for the SADIE II HRTFs provided under <a
+							href="https://www.apache.org/licenses/LICENSE-2.0">
+							Apache License v2.0</a>.
+			<li><span style="font-size:13pt">The content has been processed using generally
+					accepted rules of technology
+					as well as scientific care, but not actual attainment of any expected
+					feature.</span></li>
+			<li><span style="font-size:13pt">With the exception of willful intent or gross
+					negligence, Fraunhofer IIS
+					shall not be liable that Open Source software or other third party software
+					is free from any error
+					or claim or its fitness for a particular purpose, even if included within
+					the Sound Material.</span>
+			</li>
+			<li><span style="font-size:13pt">The Sound Material shall only be used for testing
+					and appreciating speech
+					synthesis techniques and shall not be copied, publicly transmitted,
+					distributed, lent and modified
+					for any other reason.</span></li>
+			<li><span style="font-size:13pt">No representation or warranties are made or implied
+					regarding the accuracy,
+					non-infringement, fitness for a particular purpose of Sound Material.</span>
+			</li>
+			<li><span style="font-size:13pt">Unless the conditions shown above are agreed by the
+					recipient, no
+					permission is granted for any use including copy, public transmission,
+					distribution, lend, and
+					modification.</span></li>
+			<li><span style="font-size:13pt">Copyright and Permission notice shall be duplicated
+					whenever Sound Material
+					are copied, distributed or publicly transmitted.</span></li>
+			<li><span style="font-size:13pt">The Sound material cannot be distributed with
+					charge. <a href="#fnref:1"><sup>[return]</sup></a></span></li>
+		</ul>
+
+		</p>
 	</div>
   </body>
 </html>
