@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>FlowMAC: Conditional Flow Matching for Audio Coding at Low Bit Rates</title>
+	<style>
+        red {color: red}
+        audio {width: 240px}
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>FlowMAC: Conditional Flow Matching for Audio Coding at Low Bit Rates</h1>
+      </header>
+
+    </article>
+    <div >
+	    <a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./pics/fhg_iis_logo.png" alt="FhG_IIS" width="240" height="77" align="middle"></a>
+    </div>
+    <p><b>Authors</b>: <i>Nicola Pia</i>, <i>Martin Strauss</i>, <i>Markus Multrus</i>, <i>Bernd Edler</i>.
+
+    <div>
+      <b>Abstract:</b>
+        This paper introduces FlowMAC, a novel neural audio codec for high-quality general audio compression at low bit rates based on conditional flow matching (CFM). FlowMAC jointly learns a mel spectrogram encoder, quantizer and decoder. At inference time the decoder integrates a continuous normalizing flow via an ODE solver to generate a high-quality mel spectrogram. This is the first time that a CFM-based approach is applied to general audio coding, enabling a scalable, simple and memory efficient training. Our subjective evaluations show that FlowMAC at 3 kbps achieves similar quality as state-of-the-art GAN-based and DDPM-based neural audio codecs at double the bit rate. Moreover, FlowMAC offers a tunable inference pipeline, which permits to trade off complexity and quality. This enables real-time coding on CPU, while maintaining high perceptual quality. 
+	  <br><br>
+	  Accepted to <a href="https://2025.ieeeicassp.org">ICASSP 2025</a>
+    </div>
+    <br><br>
+    <div> 
+        <p style="line-height:1.5;text-align:left;" id="fnref:1">
+		<span style="font-size:15pt"> For this demo:</span>
+		<ul>
+			<li> <span style="font-size:13pt"> All test items are unseen for all the models, and come from the <a href="http://www.festvox.org/cmu_arctic/"> CMU ARCTIC Dataset</a> provided under the <a href="http://www.festvox.org/cmu_arctic/cmu_arctic_report.pdf"> "free-software" License (page 13)</a>.</span></li>
+            <li> <span style="font-size:13pt"> The test items in the Section "CMU Speakers - noisy speech" are augmented using noise samples from the <a href="https://github.com/microsoft/DNS-Challenge"> MS DNS-Challenge</a> provided under <a href= "https://creativecommons.org/share-your-work/cclicenses/"> Creative Commons License</a> and room impulse responses from the <a href="http://www.openslr.org/28/"> Open SLR 28 Dataset</a> provided under <a href= "https://www.apache.org/licenses/LICENSE-2.0.txt"> Apache 2.0 License</a>.</span></li>
+			<li> <span style="font-size:13pt"> The test items in the Section "MUSDB - music" come from the <a href="https://sigsep.github.io/datasets/musdb.html"> MUSDB Dataset</a> and are provided under <a href= "https://creativecommons.org/share-your-work/cclicenses/"> Creative Commons License (BY-NC-SA 4.0) </a>.</span></li>
+			<li> <span style="font-size:13pt"> The test items labels as "DAC" are synthesized using the <a href="https://github.com/descriptinc/descript-audio-codec"> the official implementation and weights </a> of the Descript Audio Codec provided under the <a href="https://github.com/descriptinc/descript-audio-codec?tab=MIT-1-ov-file#readme"> MIT License </a>.</span></li>
+		</ul>  
+        </p>
+		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of Use</a>.</span></p>
+    </div>
+
+    <div>
+	<hr>
+      <h2>MUSDB - music</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+            <th nowrap><h3>FlowMAC 3kbit/s (ours)</h3></th>
+            <th nowrap><h3>FlowMAC-LC 3kbit/s (ours)</h3></th>
+			<th nowrap><h3>DAC 3kbit/s</h3></th>
+			<th nowrap><h3>DAC 6kbit/s</h3></th>
+            <th nowrap><h3>Mel-to-Audio</h3></th>
+            <th nowrap><h3>Mel-AE Only</h3></th>
+            
+		</tr>
+
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/music/originals/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_3000/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_lc_3000/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_3000/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_6000/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/copy-synthesis/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/mel_ae_only/Al_James_-_Schoolboy_Facination.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/music/originals/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_3000/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_lc_3000/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_3000/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_6000/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/copy-synthesis/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/mel_ae_only/Carlos_Gonzalez_-_A_Place_For_Us.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/music/originals/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_3000/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_lc_3000/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_3000/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_6000/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/copy-synthesis/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/mel_ae_only/Enda_Reilly_-_Cur_An_Long_Ag_Seol.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/music/originals/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_3000/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_lc_3000/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_3000/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_6000/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/copy-synthesis/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/mel_ae_only/Girls_Under_Glass_-_We_Feel_Alright.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/music/originals/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_3000/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_lc_3000/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_3000/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_6000/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/copy-synthesis/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/mel_ae_only/Juliet_s_Rescue_-_Heartbeats.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/music/originals/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_3000/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/flowmac_lc_3000/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_3000/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/dac_6000/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/copy-synthesis/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/music/mel_ae_only/Signe_Jakobsen_-_What_Have_You_Done_To_Me.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+    <div>
+	<hr>
+      <h2>CMU Speakers - noisy speech</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+            <th nowrap><h3>FlowMAC 3kbit/s (ours)</h3></th>
+            <th nowrap><h3>FlowMAC-LC 3kbit/s (ours)</h3></th>
+			<th nowrap><h3>DAC 3kbit/s</h3></th>
+			<th nowrap><h3>DAC 6kbit/s</h3></th>
+            <th nowrap><h3>Mel-to-Audio</h3></th>
+            <th nowrap><h3>Mel-AE Only</h3></th>
+            
+		</tr>
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/originals/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_3000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_lc_3000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_3000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_6000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/copy-synthesis/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/mel_ae_only/arctic_a0023.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/originals/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_3000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_lc_3000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_3000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_6000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/copy-synthesis/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/mel_ae_only/arctic_a0531.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/originals/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_3000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_lc_3000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_3000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_6000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/copy-synthesis/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/mel_ae_only/arctic_a0543.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/originals/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_3000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_lc_3000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_3000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_6000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/copy-synthesis/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/mel_ae_only/arctic_b0201.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/originals/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_3000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_lc_3000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_3000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_6000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/copy-synthesis/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/mel_ae_only/arctic_b0397.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/noisy/originals/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_3000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/flowmac_lc_3000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_3000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/dac_6000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/copy-synthesis/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/noisy/mel_ae_only/arctic_b0496.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+    <div>
+	<hr>
+      <h2>CMU Speakers - clean speech</h2>
+	    
+	    <table>
+        <tbody>
+		<tr>       
+            <th nowrap width="100"><h3>Original</h3></th>		
+            <th nowrap><h3>FlowMAC 3kbit/s (ours)</h3></th>
+            <th nowrap><h3>FlowMAC-LC 3kbit/s (ours)</h3></th>
+			<th nowrap><h3>DAC 3kbit/s</h3></th>
+			<th nowrap><h3>DAC 6kbit/s</h3></th>
+            <th nowrap><h3>Mel-to-Audio</h3></th>
+            <th nowrap><h3>Mel-AE Only</h3></th>
+            
+		</tr>
+		
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/originals/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_3000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_lc_3000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_3000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_6000/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/copy-synthesis/arctic_a0023.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/mel_ae_only/arctic_a0023.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/originals/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_3000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_lc_3000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_3000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_6000/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/copy-synthesis/arctic_a0531.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/mel_ae_only/arctic_a0531.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/originals/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_3000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_lc_3000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_3000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_6000/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/copy-synthesis/arctic_a0543.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/mel_ae_only/arctic_a0543.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/originals/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_3000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_lc_3000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_3000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_6000/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/copy-synthesis/arctic_b0201.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/mel_ae_only/arctic_b0201.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/originals/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_3000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_lc_3000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_3000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_6000/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/copy-synthesis/arctic_b0397.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/mel_ae_only/arctic_b0397.wav"></audio></td>
+		</tr>
+		<tr>
+			<td><audio controls="" preload="none"><source src="audio/clean/originals/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_3000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/flowmac_lc_3000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_3000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/dac_6000/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/copy-synthesis/arctic_b0496.wav"></audio></td>
+			<td><audio controls="" preload="none"><source src="audio/clean/mel_ae_only/arctic_b0496.wav"></audio></td>
+		</tr>
+        </tbody>
+        </table>
+    </div>	
+
+	<br><br>
+	<div>
+	<hr>
+	<h2 id="CoU">Conditions of Use:</h2>
+        <p style="line-height:1.5;text-align:left;">
+		<ul>
+			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based on material that is freely available on <a href="https://www.lti.cs.cmu.edu/">The Language Technologies Institute at Carnegie Mellon University</a> for CMU ARCTIC, <a href="https://github.com/microsoft/DNS-Challenge">MS DNS-Challenge</a> for background noise, and <a href="http://www.openslr.org/28/">Open SLR 28 Dataset</a> for room impulse responses, and <a href="https://sigsep.github.io/datasets/musdb.html"> MUSDB Dataset</a> for music.</span></li>
+			<li><span style="font-size:13pt">The content has been processed using generally accepted rules of technology as well as scientific care, but not actual attainment of any expected feature.</span></li>
+			<li><span style="font-size:13pt">With the exception of willful intent or gross negligence, Fraunhofer IIS shall not be liable that Open Source software or other third party software is free from any error or claim or its fitness for a particular purpose, even if included within the Sound Material.</span></li>
+			<li><span style="font-size:13pt">The Sound Material shall only be used for testing and appreciating audio synthesis techniques and shall not be copied, publicly transmitted, distributed, lent and modified for any other reason.</span></li>
+			<li><span style="font-size:13pt">No representation or warranties are made or implied regarding the accuracy, non-infringement, fitness for a particular purpose of Sound Material.</span></li>
+			<li><span style="font-size:13pt">Unless the conditions shown above are agreed by the recipient, no permission is granted for any use including copy, public transmission, distribution, lend, and modification.</span></li>
+			<li><span style="font-size:13pt">Copyright and Permission notice shall be duplicated whenever Sound Material are copied, distributed or publicly transmitted.</span></li>
+			<li><span style="font-size:13pt">The Sound material cannot be distributed with charge. <a href="#fnref:1"><sup>[return]</sup></a></span></li>
+		</ul>  
+       
+        </p>
+	</div>
+  </body>
+</html>
