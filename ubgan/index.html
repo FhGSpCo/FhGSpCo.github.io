@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>UBGAN: Enhancing Coded Speech with Blind and Guided Bandwidth Extension</title>
+	<style>
+        red {color: red}
+        audio {width: 300px}
+		td:first-child, th:first-child {
+    			text-align: center;
+				width: 250px; 
+				font-weight: bold;
+  		}
+		th {
+				font-size: 12pt; 
+				font-weight: bold;
+		}
+    </style>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>UBGAN: Enhancing Coded Speech with Blind and Guided Bandwidth Extension</h1>
+      </header>
+
+    </article>
+    <div >
+	    <a href="https://www.iis.fraunhofer.de/en/ff/amm.html"> <img src="./pics/fhg_iis_logo.png" alt="FhG_IIS" width="240" height="77" align="middle"></a>
+    </div>
+    <p><b>Authors</b>: <i>Kishan Gupta</i>, <i>Srikanth Korse</i>, <i>Andreas Brendel</i>, <i>Nicola Pia</i>, <i>Guillaume Fuchs</i>.
+
+    <div>
+      <b>Abstract:</b>
+	  In practical application of speech codecs, a multitude of factors such as the quality of the radio connection, limiting hardware or required user experience necessitate trade-offs between achievable perceptual quality, engendered bitrate and computational complexity. Most conventional and neural speech codecs operate on wideband (WB) speech signals to achieve this compromise. To further enhance the perceptual quality of coded speech, bandwidth extension (BWE) of the transmitted speech is an attractive and popular technique in conventional speech coding. In contrast, neural speech codecs are typically trained end-to-end to a specific set of requirements and are often not easily adaptable. In particular, they are typically trained to operate at a single fixed sampling rate. With the Universal Bandwidth Extension Generative Adversarial Network (UBGAN), we propose a modular and lightweight GAN-based solution that increases the operational flexibility of a wide range of conventional and neural codecs. Our model operates in the subband domain and extends the bandwidth of WB signals from 8 kHz to 16 kHz, resulting in super-wideband (SWB) signals. We further introduce two variants, guided-UBGAN and blind-UBGAN, where the guided version transmits quantized learned representation as a side information at a very low bitrate additional to the bitrate of the codec, while blind-BWE operates without such side-information. Our subjective assessments demonstrate the advantage of UBGAN applied to WB codecs and highlight the generalization capacity of our proposed method across multiple codecs and bitrates.
+	  <br><br>
+	  Accepted to <a href="https://waspaa.com/">WASPAA 2025</a>, 
+	  pre-print available at <a href="https://arxiv.org/abs/2505.16404">Arxiv</a>
+    </div>
+    <br><br>
+    <div> 
+        <p style="line-height:1.5;text-align:left;" id="fnref:1">
+		<span style="font-size:15pt"> For this demo:</span>
+		<ul>
+			<li> <span style="font-size:13pt"> All test items are unseen for all the models, and come from the <a href="https://openslr.org/109/"> Hi-Fi TTS Dataset</a> provided under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.</span></li>
+            <li> <span style="font-size:13pt"> The test items labels as "DAC-IBM" are synthesized using the <a href="https://huggingface.co/ibm-research/DAC.speech.v1.0"> https://huggingface.co/ibm-research/DAC.speech.v1.0</a>  provided under the CDLA-Permissive-2.0 license.</span></li>
+			<li> <span style="font-size:13pt"> The test items labels as "Encodec" are synthesized using the <a href="https://github.com/facebookresearch/encodec">https://github.com/facebookresearch/encodec</a> provided under the MIT license.</span></li>
+			<li> <span style="font-size:13pt"> The test items labels as "FreqCodec" are synthesized using the <a href="https://github.com/modelscope/FunCodec"> https://github.com/modelscope/FunCodec</a> provided under the MIT license.</span></li>
+			<li> <span style="font-size:13pt"> The test items labels as "LPCNet" are synthesized using the <a href="https://github.com/xiph/LPCNet">https://github.com/xiph/LPCNet </a> provided under the BSD-3-Clause license license .</span></li>
+			<li> <span style="font-size:13pt"> The test items labels as "LyraV2" are synthesized using the <a href="https://github.com/google/lyra">https://github.com/google/lyra </a> provided under the Apache-2.0 license .</span></li>
+			<li> <span style="font-size:13pt"> The test items labels as "AP-BWE" are synthesized using the <a href="https://github.com/yxlu-0102/AP-BWE">https://github.com/yxlu-0102/AP-BWE</a> provided under the MIT license.</span></li>
+		</ul>  
+        </p>
+		<p style="line-height:1.5;text-align:left;"><span style="font-size:15pt"><a href="#CoU">Conditions of Use</a>.</span></p>
+    </div>
+
+    <div>
+	<hr>
+      <h2>Bandwidth Extension of WB codec</h2>
+	  <table style="margin-bottom: 40px;">
+		<thead>
+		  <tr>
+			<th nowrap><h3>Original (16khz)</h3></th>
+            <th nowrap><h3>Original (48khz)</h3></th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td>
+				<audio controls src="audio/orig_16k/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/orig_16k/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/orig_48k/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/orig_48k/livingalone_02_benson_0284.wav"></audio>
+			  </td>
+		  </tr>
+		</tbody>
+	  </table>
+
+	  <table border="0" cellpadding="8" cellspacing="0" style="margin: 0;">
+		<thead>
+		  <tr>
+			<th nowrap width="100"><h3>Codec</h3></th>		
+			<th nowrap><h3>Coded (16kHz)</h3></th>
+			<th nowrap><h3>Blind-UBGAN (32kHz)</h3></th>
+            <th nowrap><h3>Guided-UBGAN (32kHz)</h3></th>
+            <th nowrap><h3>AP-BWE (48kHz)</h3></th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td>AMR-WB (6.6kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/amrwb_6600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/amrwb_6600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/amrwb_6600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/amrwb_6600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/amrwb_6600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/amrwb_6600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/amrwb_6600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/amrwb_6600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		  <tr>
+			<td>EVS (7.2kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/evs_7200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/evs_7200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/evs_7200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/evs_7200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/evs_7200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/evs_7200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/evs_7200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/evs_7200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		  <tr>
+			<td>Opus (9.0kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/opus_9000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/opus_9000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/opus_9000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/opus_9000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/opus_9000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/opus_9000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/opus_9000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/opus_9000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		  <tr>
+			<td>LPCNet (1.6kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/lpcnet_1600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/lpcnet_1600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/lpcnet_1600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/lpcnet_1600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/lpcnet_1600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/lpcnet_1600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/lpcnet_1600/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/lpcnet_1600/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		  <tr>
+			<td>NCSTFT (1.5kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/ncstft_1500/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/ncstft_1500/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/ncstft_1500/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/ncstft_1500/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/ncstft_1500/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/ncstft_1500/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/ncstft_1500/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/ncstft_1500/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		  <tr>
+			<td>FreqCodec (3.0kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/funcodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/funcodec_3000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/funcodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/funcodec_3000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/funcodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/funcodec_3000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/funcodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/funcodec_3000/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		  <tr>
+			<td>LyraV2 (3.2kbps)</td>
+			<td>
+				<audio controls src="audio/WB/WB_coded_16k/lyra_3200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_coded_16k/lyra_3200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/lyra_3200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Blind_UBGAN_32k/lyra_3200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/lyra_3200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_Guided_UBGAN_32k/lyra_3200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+			<td>
+				<audio controls src="audio/WB/WB_APBWE_FB/lyra_3200/hartmann_15_fawcett_0222.wav"></audio><br>
+				<audio controls src="audio/WB/WB_APBWE_FB/lyra_3200/livingalone_02_benson_0284.wav"></audio>
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
+    </div>	
+	<div>
+		<hr>
+		  <h2>Bandwidth Extension of (semi) Super-wideband codec</h2>
+		  <table border="0" cellpadding="8" cellspacing="0" style="margin: 0;">
+			<thead>
+			  <tr>
+				<th nowrap width="100"><h3>Codec</h3></th>		
+				<th nowrap><h3>Coded (24/32kHz)</h3></th>
+				<th nowrap><h3>Blind-UBGAN (32kHz)</h3></th>
+				<th nowrap><h3>Guided-UBGAN (32kHz)</h3></th>
+				<th nowrap><h3>AP-BWE (48kHz)</h3></th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>DAC-IBM (1.5kbps)</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_coded_16k/dac_ibm/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_coded_16k/dac_ibm/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_Blind_UBGAN_32k/dac_ibm/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_Blind_UBGAN_32k/dac_ibm/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_Guided_UBGAN_32k/dac_ibm/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_Guided_UBGAN_32k/dac_ibm/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_APBWE_FB/dac_ibm/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_APBWE_FB/dac_ibm/livingalone_02_benson_0284.wav"></audio>
+				</td>
+			  </tr>
+			  <tr>
+				<td>Encodec (3.0kbps)</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_coded_16k/encodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_coded_16k/encodec_3000/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_Blind_UBGAN_32k/encodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_Blind_UBGAN_32k/encodec_3000/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_Guided_UBGAN_32k/encodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_Guided_UBGAN_32k/encodec_3000/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_APBWE_FB/encodec_3000/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_APBWE_FB/encodec_3000/livingalone_02_benson_0284.wav"></audio>
+				</td>
+			  </tr>
+			  <tr>
+				<td>EVS (9.6kbps)</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_coded_16k/evs_9600/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_coded_16k/evs_9600/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_Blind_UBGAN_32k/evs_9600/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_Blind_UBGAN_32k/evs_9600/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_Guided_UBGAN_32k/evs_9600/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_Guided_UBGAN_32k/evs_9600/livingalone_02_benson_0284.wav"></audio>
+				</td>
+				<td>
+					<audio controls src="audio/SWB/SWB_APBWE_FB/evs_9600/hartmann_15_fawcett_0222.wav"></audio><br>
+					<audio controls src="audio/SWB/SWB_APBWE_FB/evs_9600/livingalone_02_benson_0284.wav"></audio>
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>	
+	<br><br>
+	<div>
+	<hr>
+	<h2 id="CoU">Conditions of Use:</h2>
+        <p style="line-height:1.5;text-align:left;">
+		<ul>
+			<li><span style="font-size:13pt">Fraunhofer IIS generated this sound material based on material that is freely available on <a href="https://openslr.org/109/"> as Hi-Fi TTS Dataset</a></span></li>
+			<li><span style="font-size:13pt">The content has been processed using generally accepted rules of technology as well as scientific care, but not actual attainment of any expected feature.</span></li>
+			<li><span style="font-size:13pt">With the exception of willful intent or gross negligence, Fraunhofer IIS shall not be liable that Open Source software or other third party software is free from any error or claim or its fitness for a particular purpose, even if included within the Sound Material.</span></li>
+			<li><span style="font-size:13pt">The Sound Material shall only be used for testing and appreciating audio synthesis techniques and shall not be copied, publicly transmitted, distributed, lent and modified for any other reason.</span></li>
+			<li><span style="font-size:13pt">No representation or warranties are made or implied regarding the accuracy, non-infringement, fitness for a particular purpose of Sound Material.</span></li>
+			<li><span style="font-size:13pt">Unless the conditions shown above are agreed by the recipient, no permission is granted for any use including copy, public transmission, distribution, lend, and modification.</span></li>
+			<li><span style="font-size:13pt">Copyright and Permission notice shall be duplicated whenever Sound Material are copied, distributed or publicly transmitted.</span></li>
+			<li><span style="font-size:13pt">The Sound material cannot be distributed with charge. <a href="#fnref:1"><sup>[return]</sup></a></span></li>
+		</ul>  
+       
+        </p>
+	</div>
+  </body>
+</html>
